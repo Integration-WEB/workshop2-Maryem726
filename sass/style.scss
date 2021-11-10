@@ -1,0 +1,47 @@
+$primary-color: #f7ef7e;
+
+.text{
+    color:red;
+    font-size: 20px;
+}
+textarea{
+    @extend .text;
+}
+h1{
+    @extend .text;
+}
+
+@mixin border-button($p1,$p2,$p3) {
+    border:$p1 $p2 $p3;
+}
+.button{
+@include border-button(5px,solid,red)
+}
+@function background($color){
+    @if($color==white){
+        @return black;
+    }
+    @else{
+        @return white;
+    }
+}
+
+h1{
+    color:background(white);
+}
+h2{
+    color:background(black);
+}
+
+$langages:"react","sprint","blabla";
+@function firstElement($list)
+{ @return nth($list,1);
+}
+@function lastElement($list)
+{ @return nth($list,-1);
+    @return nth($list,length($list));
+}
+
+.text1{
+    content:firstElement($langages);
+}
